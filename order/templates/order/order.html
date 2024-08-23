@@ -1,0 +1,101 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% load customfunction %}
+
+{% block container %}
+<div class="row">
+    <div class="col-md-8 order-md-1 cart_info">
+        <h4 class="mb-3 mt-3">Shipping Address</h4>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        
+        <form action="" method="POST" class="needs-validation" novalidate="">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    {{ form.name.label_tag }} {{ form.name }}
+                    {% if form.name.errors %}
+                        <div class="invalid-feedback">{{ form.name.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="col-md-6 mb-3">
+                    {{ form.email.label_tag }} {{ form.email }}
+                    {% if form.email.errors %}
+                        <div class="invalid-feedback">{{ form.email.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mb-3">
+                {{ form.phone.label_tag }} {{ form.phone }}
+                {% if form.phone.errors %}
+                    <div class="invalid-feedback">{{ form.phone.errors }}</div>
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                {{ form.address.label_tag }} {{ form.address }}
+                {% if form.address.errors %}
+                    <div class="invalid-feedback">{{ form.address.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="col-md-5 mb-3">
+                    {{ form.division.label_tag }} {{ form.division }}
+                    {% if form.division.errors %}
+                        <div class="invalid-feedback">{{ form.division.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="col-md-4 mb-3">
+                    {{ form.district.label_tag }} {{ form.district }}
+                    {% if form.district.errors %}
+                        <div class="invalid-feedback">{{ form.district.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="col-md-3 mb-3">
+                    {{ form.zip_code.label_tag }} {{ form.zip_code }}
+                    {% if form.zip_code.errors %}
+                        <div class="invalid-feedback">{{ form.zip_code.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="d-block my-3">
+                {{ form.payment_method.label_tag }} {{ form.payment_method }}
+                {% if form.payment_method.errors %}
+                    <div class="invalid-feedback">{{ form.payment_method.errors }}</div>
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    {{ form.account_no.label_tag }} {{ form.account_no }}
+                    {% if form.account_no.errors %}
+                        <div class="invalid-feedback">{{ form.account_no.errors }}</div>
+                    {% endif %}
+                </div>
+                <div class="col-md-6 mb-3">
+                    {{ form.transaction_id.label_tag }} {{ form.transaction_id }}
+                    {% if form.transaction_id.errors %}
+                        <div class="invalid-feedback">{{ form.transaction_id.errors }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-warning btn-block" type="submit" style="margin-bottom: 20px">Continue to checkout</button>
+        </form>
+    </div>
+    <div class="col-md-4 order-md-2 mb-4">
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center"><h4>Checkout Summary</h4></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Books<span>{{ cart|length }}</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Subtotal<span> ₹{{ cart.get_total_price }}</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Shipping<span> ₹{{ cost|shipping }}</span></li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">Payable Total<span> ₹{{ cart.get_total_price|payabletotal }} </span></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

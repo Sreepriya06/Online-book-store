@@ -1,0 +1,55 @@
+{% load static %}
+<footer class="footer" style="background-color: #232f3e; color: #ffffff; padding: 40px 0;">
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-11">
+                <div class="row">
+                    <!-- Get to Know Us -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <h5 class="mb-3">Get to Know Us</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white text-decoration-none">About Us</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Careers</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Press Releases</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Amazon Science</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Connect with Us -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <h5 class="mb-3">Connect with Us</h5>
+                        <div>
+                            <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-lg"></i></a>&emsp;
+                            <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>&emsp;
+                            <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>&emsp;
+                        </div>
+                    </div>
+
+                    <!-- Let Us Help You -->
+                    <div class="col-md-4 col-sm-6 mb-4">
+                        <h5 class="mb-3">Let Us Help You</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white text-decoration-none">Your Account</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Returns Centre</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Recalls and Product Safety Alerts</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">100% Purchase Protection</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Online bookstore App Download</a></li>
+                            <li><a href="#" class="text-white text-decoration-none">Help</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="my-4" style="border-color: #37475a;">
+
+
+                <div class="row mt-4">
+                    <div class="col-12 text-center">
+                        <img src="{% static 'images/logo/logo.png' %}" alt="Logo" style="max-width: 100px; margin-bottom: 15px;">
+                        <br>
+                        <small>&copy; {% now "Y" %} Onlinebookstore. All rights reserved.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
